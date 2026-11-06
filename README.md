@@ -1,6 +1,6 @@
 # ASC Home Assistant Cards
 
-**v0.3.0 — vier Dashboard-Karten für ein DC-gekoppeltes Solarsystem mit Adaptive Solar Controller (ASC).**
+**v0.3.1 — vier Dashboard-Karten für ein DC-gekoppeltes Solarsystem mit Adaptive Solar Controller (ASC).**
 
 | Karte | Typ | Zweck |
 |---|---|---|
@@ -27,13 +27,13 @@ Updates erscheinen danach in HACS. Alle vier Karten stecken in **einer** Datei.
 
 ### Manuell
 
-`dist/asc-home-assistant-cards.js` nach `/config/www/` kopieren; `/local/asc-home-assistant-cards.js?v=0.3.0` als JavaScript-Modul eintragen. Nur **eine** Version dieser Ressource laden; bei Updates die Zahl hinter `?v=` erhöhen.
+`dist/asc-home-assistant-cards.js` nach `/config/www/` kopieren; `/local/asc-home-assistant-cards.js?v=0.3.1` als JavaScript-Modul eintragen. Nur **eine** Version dieser Ressource laden; bei Updates die Zahl hinter `?v=` erhöhen.
 
 ### Für Maintainer: Veröffentlichen
 
 * Das GitHub-Repository muss **`asc-home-assistant-cards`** heißen: HACS sucht in `dist/` nach einer `.js`-Datei mit dem Namen des Repositorys.
 * `dist/asc-home-assistant-cards.js` wird mit eingecheckt (vorher `npm run build`).
-* Für jede Version einen GitHub-Release mit Tag `v0.3.0` usw. erstellen; HACS bietet die letzten Releases zur Auswahl an.
+* **Releases entstehen automatisch:** Version in `package.json` erhöhen, `CHANGELOG.md` ergänzen, `npm run build`, auf `main` pushen. `.github/workflows/release.yml` legt dann Tag und Release mit der JS-Datei an; HACS zeigt das Update an.
 * `.github/workflows/validate.yml` prüft bei jedem Push die HACS-Struktur und führt die Tests aus.
 * Struktur laut [HACS-Dokumentation](https://hacs.xyz/docs/publish/plugin/).
 
@@ -152,11 +152,15 @@ Der Verlauf zeigt immer **heute** von Mitternacht bis jetzt, unabhängig vom kWh
 
 Historische Einheiten werden pro Messpunkt umgerechnet. Unknown/unavailable unterbricht eine Kurve. Daten werden weder zu einer perfekten Kurve ergänzt noch als Prognose fortgeschrieben. Bei gelöschter Recorder-Historie bleiben Bereiche leer. Die Karte läuft bei History-/Statistikfehlern weiter.
 
+## Lizenz
+
+GNU General Public License v3.0 oder später (GPL-3.0-or-later), siehe [LICENSE](LICENSE). Copyright © 2026 Darkwulf183.
+
 ## Mitwirkende
 
 * **[Darkwulf183](https://github.com/Darkwulf183)** – Idee, Anlage, Anforderungen, Tests in Home Assistant, Maintainer
 * **ChatGPT** (OpenAI) – erste Versionen der Karten (v0.1–v0.2), Design und ASC-Sensorzuordnung
-* **Claude** (Anthropic) – Code-Prüfung und Fehlerbehebungen (v0.2.1–v0.2.3), Light-Karte für Info-Screens, HACS-Veröffentlichung (v0.3.0)
+* **Claude** (Anthropic) – Code-Prüfung und Fehlerbehebungen (v0.2.1–v0.2.3), Light-Karte für Info-Screens, HACS-Veröffentlichung (v0.3.0–v0.3.1)
 
 ## Entwicklung
 

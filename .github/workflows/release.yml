@@ -1,0 +1,53 @@
+name: Release
+
+# Creates the tag and GitHub release automatically when package.json carries a new version.
+# HACS reads these releases to offer updates.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Tests
+        run: npm test
+
+      - name: dist ist aktuell
+        run: |
+          npm run build
+          git diff --exit-code dist/
+
+      - name: Version lesen
+        id: version
+        run: echo "tag=v$(node -p "require('./package.json').version")" >> "$GITHUB_OUTPUT"
+
+      - name: Release anlegen, falls neu
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.version.outputs.tag }}
+        run: |
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "Release $TAG existiert bereits."
+            exit 0
+          fi
+          VERSION="${TAG#v}"
+          # Release notes = the matching section of CHANGELOG.md
+          awk -v v="$VERSION" '
+            $0 ~ "^## "v" " {on=1; next}
+            on && /^## / {exit}
+            on {print}
+          ' CHANGELOG.md > notes.md
+          [ -s notes.md ] || echo "Siehe CHANGELOG.md" > notes.md
+          gh release create "$TAG" dist/asc-home-assistant-cards.js \
+            --target "$GITHUB_SHA" --title "$TAG" --notes-file notes.md

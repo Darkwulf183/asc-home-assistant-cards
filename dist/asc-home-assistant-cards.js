@@ -1,4 +1,4 @@
-/* ASC Home Assistant Cards v0.3.0 | MIT */
+/* ASC Home Assistant Cards v0.3.1 | GPL-3.0-or-later */
 (()=>{
 const DEFAULTS = {
  pv_power:'sensor.solar_watt_aktuell', voltage:'sensor.solar_average_voltage', battery_current:'sensor.solar_complete_ampere',
@@ -436,7 +436,7 @@ class ASCSolarDashboardCard extends EnergyFlowCardDCBus {
   this._apply(`<style>${DESIGN_CSS}${DASHBOARD_CSS}</style><ha-card class="solar ${c.appearance==='ha'?'theme-ha':''}"><section class="panel flow-panel"><div class="head"><div><div class="eyebrow">Adaptive Solar Controller</div><h2>${esc(c.title||'Energiefluss')}</h2><p class="subtitle">PV → DC-Bus → Inverter → Haus ↔ Netz · Akku am DC-Bus</p></div><span class="badge">${esc(state('controller_state')==='—'?'ASC-Status unbekannt':state('controller_state'))}</span></div>${controls(this)}<div class="diagram">${dashboardFlow(m)}${compactFlow(m,true)}</div></section>
   <div class="lower"><section class="panel history-panel"><h3>Leistungsverlauf heute</h3>${chart(this,m)}<div class="history-note">W · Heute, Browser-Zeitzone · Nur aufgezeichnete Sensoren${this._historyError?'<br>'+esc(this._historyError):''}</div></section><section class="panel"><h3>Energie ${periodLabel(this)}</h3>${dataRows(energyRows)}</section><section class="panel"><h3>Aktueller Status</h3>${dataRows(rows)}</section></div>
   <div class="gauges">${gauge('PV Auslastung',utilization,f(l.pv,'W'),c.pv_capacity_w?'von '+f(c.pv_capacity_w,'W'):'Nennleistung nicht konfiguriert',PALETTE.pv)}${gauge('Batterie Füllstand',soc,f(soc,'%'),f(stored)+' / '+f(capacity)+' · geschätzt',PALETTE.battery)}${gauge('Eigenverbrauch AC',self,f(self,'%'),periodLabel(this)+' · Inverter → Haus',PALETTE.dc)}${landscape()}</div>
-  ${this._error?`<div class="error" role="alert">${esc(this._error)}</div>`:''}<div class="note">${this._loading?'Energiedaten werden geladen …':'Live-Werte aktuell · kWh '+periodLabel(this)+' · Statistikwerte zeitverzögert'} · — Keine Daten<br>Dashboard v0.3.0 · Experimentell, auf Basis ASC v0.4.3.1</div></ha-card>`);
+  ${this._error?`<div class="error" role="alert">${esc(this._error)}</div>`:''}<div class="note">${this._loading?'Energiedaten werden geladen …':'Live-Werte aktuell · kWh '+periodLabel(this)+' · Statistikwerte zeitverzögert'} · — Keine Daten<br>Dashboard v0.3.1 · Experimentell, auf Basis ASC v0.4.3.1</div></ha-card>`);
  }
 }
 

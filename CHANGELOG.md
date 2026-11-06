@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.1 — 2026-11-06
+
+* Lizenz auf GPL-3.0-or-later umgestellt (vorher MIT).
+* Mitwirkende ergänzt (README, `CONTRIBUTORS.md`, `package.json`).
+* Releases werden automatisch erstellt: `.github/workflows/release.yml` legt bei neuer Version in `package.json` Tag und GitHub-Release mit `dist/asc-home-assistant-cards.js` an, damit HACS Updates anzeigt.
+
 ## 0.3.0 — 2026-11-06
 
 * Neue Karte `custom:asc-solar-dashboard-light-card` für Info-Screens: nur der Live-Energiefluss des Dashboards (Kacheln), immer heute, ohne Zeitraumwahl, Verlauf, Tabellen oder Rundanzeigen. Überschrift skaliert mit der Kartenbreite; `show_header: false` blendet sie aus; unter 701 px Ringansicht.
