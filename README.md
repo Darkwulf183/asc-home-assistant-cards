@@ -152,6 +152,12 @@ Der Verlauf zeigt immer **heute** von Mitternacht bis jetzt, unabhängig vom kWh
 
 Historische Einheiten werden pro Messpunkt umgerechnet. Unknown/unavailable unterbricht eine Kurve. Daten werden weder zu einer perfekten Kurve ergänzt noch als Prognose fortgeschrieben. Bei gelöschter Recorder-Historie bleiben Bereiche leer. Die Karte läuft bei History-/Statistikfehlern weiter.
 
+## Mitwirkende
+
+* **[Darkwulf183](https://github.com/Darkwulf183)** – Idee, Anlage, Anforderungen, Tests in Home Assistant, Maintainer
+* **ChatGPT** (OpenAI) – erste Versionen der Karten (v0.1–v0.2), Design und ASC-Sensorzuordnung
+* **Claude** (Anthropic) – Code-Prüfung und Fehlerbehebungen (v0.2.1–v0.2.3), Light-Karte für Info-Screens, HACS-Veröffentlichung (v0.3.0)
+
 ## Entwicklung
 
 Node.js 20+; keine Paketinstallation für Build oder Tests:
