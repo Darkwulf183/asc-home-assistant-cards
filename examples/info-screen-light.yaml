@@ -1,0 +1,12 @@
+# Light-Variante für einen Info-Screen: nur der Live-Energiefluss, immer "heute".
+# Keine Zeitraumwahl, kein Verlauf, keine Tabellen. Am besten in einer Panel-Ansicht.
+title: Info
+path: info
+type: panel
+cards:
+  - type: custom:asc-solar-dashboard-light-card
+    title: Solar
+    appearance: dark
+    animate: true
+    # show_header: false   # Überschrift und Statuszeile ausblenden
+    # Sensoren wie bei den anderen Karten unter entities: überschreiben, falls umbenannt.

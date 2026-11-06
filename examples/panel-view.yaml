@@ -1,0 +1,11 @@
+# Unter views: in der Dashboard-Konfiguration einfügen.
+title: Solar
+path: solar
+type: panel
+cards:
+  - type: custom:asc-solar-dashboard-card
+    title: Energiefluss
+    appearance: dark
+    animate: true
+    # pv_capacity_w: eigene PV-Nennleistung als Zahl
+    # energy: eigene Inverter-/Netz-Energiezähler wie im README ergänzen

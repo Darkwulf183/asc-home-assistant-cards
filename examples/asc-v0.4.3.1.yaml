@@ -1,0 +1,41 @@
+# Verifizierte Vorgaben aus ASC const.py und sensor.py.
+# Abweichende oder umbenannte Entity-IDs unten überschreiben.
+type: custom:energy-flow-card-dc-bus
+title: Energieverteilung
+appearance: dark
+animate: true
+dashboard_path: /energy
+show_live: true
+battery_positive: charge
+grid_positive: import
+entities:
+  pv_power: sensor.solar_watt_aktuell
+  voltage: sensor.solar_average_voltage
+  battery_current: sensor.solar_complete_ampere
+  inverter_power: sensor.apsystems_output_average
+  grid_power: sensor.e320_power_in
+  stored_energy: sensor.adaptive_solar_controller_estimated_stored_battery_energy
+  capacity: sensor.adaptive_solar_controller_learned_usable_battery_capacity
+energy:
+  pv:
+    entity: sensor.solar_tageserzeugung
+    source: today
+  battery_charge:
+    entity: sensor.adaptive_solar_controller_battery_energy_charged_total
+    source: statistics
+  battery_discharge:
+    entity: sensor.adaptive_solar_controller_battery_energy_discharged_total
+    source: statistics
+# Weitere bestätigte Zähler eintragen, siehe README. Keine geratenen IDs aktiv.
+#  inverter:
+#    entity: sensor.DEIN_INVERTER_AC_GESAMTZAEHLER
+#    source: statistics
+#  grid_import:
+#    entity: sensor.DEIN_NETZBEZUG_GESAMTZAEHLER
+#    source: statistics
+#  grid_export:
+#    entity: sensor.DEINE_EINSPEISUNG_GESAMTZAEHLER
+#    source: statistics
+#  home:
+#    entity: sensor.DEIN_HAUSVERBRAUCH_GESAMTZAEHLER
+#    source: statistics

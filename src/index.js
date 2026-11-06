@@ -1,0 +1,13 @@
+import {EnergyFlowCardDCBus} from './energy-flow-card-dc-bus.js';
+import {ASCSolarDashboardCard} from './asc-solar-dashboard-card.js';
+import {EnergyFlowCardDCBusCompact} from './energy-flow-card-dc-bus-compact.js';
+import {ASCSolarDashboardLightCard} from './asc-solar-dashboard-light-card.js';
+if(!customElements.get('energy-flow-card-dc-bus'))customElements.define('energy-flow-card-dc-bus',EnergyFlowCardDCBus);
+if(!customElements.get('energy-flow-card-dc-bus-compact'))customElements.define('energy-flow-card-dc-bus-compact',EnergyFlowCardDCBusCompact);
+if(!customElements.get('asc-solar-dashboard-card'))customElements.define('asc-solar-dashboard-card',ASCSolarDashboardCard);
+if(!customElements.get('asc-solar-dashboard-light-card'))customElements.define('asc-solar-dashboard-light-card',ASCSolarDashboardLightCard);
+window.customCards=window.customCards||[];
+if(!window.customCards.some(c=>c.type==='energy-flow-card-dc-bus'))window.customCards.push({type:'energy-flow-card-dc-bus',name:'Energy Flow Card DC Bus',description:'Kompakte DC-Topologie mit Zeitraumenergie und Live-Werten',preview:true});
+if(!window.customCards.some(c=>c.type==='energy-flow-card-dc-bus-compact'))window.customCards.push({type:'energy-flow-card-dc-bus-compact',name:'Energy Flow Card DC Bus · Compact',description:'Kompakte DC-Energieverteilung im Stil der HA-Übersichtskarte',preview:true});
+if(!window.customCards.some(c=>c.type==='asc-solar-dashboard-card'))window.customCards.push({type:'asc-solar-dashboard-card',name:'ASC Solar Dashboard · Experimentell',description:'Dunkles ASC-Dashboard mit Energiefluss, Verlauf, Status und Batterie',preview:true});
+if(!window.customCards.some(c=>c.type==='asc-solar-dashboard-light-card'))window.customCards.push({type:'asc-solar-dashboard-light-card',name:'ASC Solar Dashboard · Light (Info-Screen)',description:'Nur der Live-Energiefluss des ASC-Dashboards, immer heute, ohne Zeitraumwahl',preview:true});

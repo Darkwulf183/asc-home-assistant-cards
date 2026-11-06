@@ -1,0 +1,4 @@
+type: custom:energy-flow-card-dc-bus-compact
+appearance: ha
+animate: true
+dashboard_path: /energy

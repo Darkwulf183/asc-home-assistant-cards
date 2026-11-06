@@ -1,0 +1,28 @@
+# Große Karte: am besten in einer eigenen Panel-Ansicht verwenden.
+type: custom:asc-solar-dashboard-card
+title: Energiefluss
+appearance: dark
+animate: true
+# Eigene PV-Nennleistung einsetzen; ohne Angabe bleibt die Auslastung unbekannt.
+# pv_capacity_w: 2000
+battery_positive: charge
+grid_positive: import
+entities:
+  pv_power: sensor.solar_watt_aktuell
+  voltage: sensor.solar_average_voltage
+  battery_current: sensor.solar_complete_ampere
+  inverter_power: sensor.apsystems_output_average
+  grid_power: sensor.e320_power_in
+  stored_energy: sensor.adaptive_solar_controller_estimated_stored_battery_energy
+  capacity: sensor.adaptive_solar_controller_learned_usable_battery_capacity
+  controller_state: sensor.adaptive_solar_controller_controller_state
+  mode: select.adaptive_solar_controller_control_mode
+  inverter_limit: sensor.adaptive_solar_controller_effective_inverter_limit
+  forecast: sensor.adaptive_solar_controller_corrected_pv_forecast_today_total
+  budget: sensor.adaptive_solar_controller_battery_energy_budget
+  budget_state: sensor.adaptive_solar_controller_battery_energy_budget_state
+  learning: sensor.adaptive_solar_controller_prediction_maturity
+# Für Batterie-/Hauskurven optional echte aufgezeichnete W-Sensoren zuordnen:
+#  battery_power: sensor.DEINE_BATTERIELEISTUNG
+#  home_power: sensor.DEIN_HAUSVERBRAUCH
+# Energiezuordnung wie bei der kleinen Karte ergänzen, siehe asc-v0.4.3.1.yaml.
