@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.2 — 2026-11-06
+
+* Light-Karte (Info-Screen): immer Queransicht mit Kacheln; die Hochkant-Ringansicht entfällt.
+
 ## 0.3.1 — 2026-11-06
 
 * Lizenz auf GPL-3.0-or-later umgestellt (vorher MIT).

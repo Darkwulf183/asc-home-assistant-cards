@@ -1,6 +1,6 @@
 # ASC Home Assistant Cards
 
-**v0.3.1 — vier Dashboard-Karten für ein DC-gekoppeltes Solarsystem mit Adaptive Solar Controller (ASC).**
+**v0.3.2 — vier Dashboard-Karten für ein DC-gekoppeltes Solarsystem mit Adaptive Solar Controller (ASC).**
 
 | Karte | Typ | Zweck |
 |---|---|---|
@@ -27,7 +27,7 @@ Updates erscheinen danach in HACS. Alle vier Karten stecken in **einer** Datei.
 
 ### Manuell
 
-`dist/asc-home-assistant-cards.js` nach `/config/www/` kopieren; `/local/asc-home-assistant-cards.js?v=0.3.1` als JavaScript-Modul eintragen. Nur **eine** Version dieser Ressource laden; bei Updates die Zahl hinter `?v=` erhöhen.
+`dist/asc-home-assistant-cards.js` nach `/config/www/` kopieren; `/local/asc-home-assistant-cards.js?v=0.3.2` als JavaScript-Modul eintragen. Nur **eine** Version dieser Ressource laden; bei Updates die Zahl hinter `?v=` erhöhen.
 
 ### Für Maintainer: Veröffentlichen
 
@@ -45,7 +45,7 @@ title: Solar
 # show_header: false   # Überschrift/Status ausblenden
 ```
 
-Am besten allein in einer **Panel-Ansicht** (Beispiel: `examples/info-screen-light.yaml`). Überschrift und Kacheln skalieren mit der Breite, auch auf großen Bildschirmen. Unter 701 px erscheint die Ringansicht. kWh-Werte beziehen sich immer auf heute und werden alle fünf Minuten aktualisiert, Live-Watt sofort. Sensoren werden wie bei den anderen Karten unter `entities:` überschrieben.
+Am besten allein in einer **Panel-Ansicht** (Beispiel: `examples/info-screen-light.yaml`). Überschrift und Kacheln skalieren mit der Breite, auch auf großen Bildschirmen. Die Karte zeigt immer die Queransicht, auch auf schmalen Geräten, da Info-Screens quer stehen. kWh-Werte beziehen sich immer auf heute und werden alle fünf Minuten aktualisiert, Live-Watt sofort. Sensoren werden wie bei den anderen Karten unter `entities:` überschrieben.
 
 ### Kleine Karte
 

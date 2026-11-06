@@ -66,7 +66,7 @@ test('light card: flow only, always today, no period buttons, history or tables'
  card._hass={states:{'sensor.adaptive_solar_controller_controller_state':{state:'ok',attributes:{}}},callWS:async()=>({}),callApi:async()=>{api++;return [];}};
  await card.refresh();card.render();const html=card.shadowRoot.innerHTML.replace(/<style>[\s\S]*?<\/style>/,'');
  assert.equal(card._period,'today');assert.ok(!/data-period=/.test(html));assert.ok(!/Leistungsverlauf|Aktueller Status|class="gauge/.test(html));
- assert.match(html,/class="wide-flow"/);assert.match(html,/class="narrow-flow"/);assert.match(html,/>ok</);assert.equal(api,0);
+ assert.match(html,/class="wide-flow"/);assert.ok(!/class="narrow-flow"/.test(html));assert.match(html,/>ok</);assert.equal(api,0);
  card.setConfig({show_header:false,auto_ha_energy:false});card.render();assert.ok(!/<h2>/.test(card.shadowRoot.innerHTML));
  assert.equal(card.getGridOptions().columns,'full');
 });

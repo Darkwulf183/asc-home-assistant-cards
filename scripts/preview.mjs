@@ -27,7 +27,7 @@ big+=panel(498,590,334,340,'Energie heute',rows(lists[0],509,638,312));
 big+=panel(844,590,360,340,'Aktueller Status',rows(lists[1],855,630,338));
 for(let i=0;i<3;i++)big+=panel(16+i*267,946,255,216,['PV Auslastung','Batterie Füllstand','Eigenverbrauch AC'][i],place(gaugeHtml[i],28+i*267,989,231,158));
 big+=panel(817,946,387,216,'',place(svgOnly(landscape()),818,947,385,214))+`<rect x="818" y="1074" width="385" height="87" fill="#07131e" opacity=".8"/>`+text(838,1108,'Saubere Energie.',21,'#edf3f8',600)+text(838,1135,'Dein System im Blick.',16,'#c2d8e5');
-big+=text(20,1187,'Statische Designvorschau · synthetische Demodaten · v0.3.1',11,'#91a9b8');
+big+=text(20,1187,'Statische Designvorschau · synthetische Demodaten · v0.3.2',11,'#91a9b8');
 const outputs={'small':small,'dashboard':wrap(1220,1204,big),'mobile-flow':wrap(400,650,place(compactFlow(m,true).replace('narrow-flow','wide-flow'),10,20,380,610))};
 for(const [name,svg]of Object.entries(outputs))writeFileSync(new URL(name+'.svg',dir),svg);
 if(process.argv[2]){const sharp=createRequire(import.meta.url)(process.argv[2]);for(const [name,svg]of Object.entries(outputs))await sharp(Buffer.from(svg)).png().toFile(new URL(name+'.png',dir).pathname.replace(/^\/([A-Za-z]:)/,'$1'));}
